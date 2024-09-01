@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "cookies-refresh-back",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

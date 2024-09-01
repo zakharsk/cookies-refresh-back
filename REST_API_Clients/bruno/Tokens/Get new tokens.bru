@@ -1,0 +1,15 @@
+meta {
+  name: Get new tokens
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{API_URL}}/tokens
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: 
+}
