@@ -13,8 +13,8 @@ export class TokensService {
     try {
       const jsonString = atob(token);
       const jsonObj: CreateUserDto = JSON.parse(jsonString);
-      jsonObj.login = decodeURI(jsonObj.login);
-      jsonObj.password = decodeURI(jsonObj.password);
+      jsonObj.login = decodeURIComponent(jsonObj.login);
+      jsonObj.password = decodeURIComponent(jsonObj.password);
 
       return jsonObj;
     } catch {
