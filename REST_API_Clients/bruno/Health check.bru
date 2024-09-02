@@ -1,0 +1,11 @@
+meta {
+  name: Health check
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{API_HOST}}/healthz
+  body: none
+  auth: none
+}

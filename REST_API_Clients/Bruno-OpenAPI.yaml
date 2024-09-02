@@ -1,0 +1,94 @@
+openapi: 3.0.0
+info:
+  title: Cookies Refresh Back
+  version: 1.0.0
+paths:
+  /api/v1/tokens:
+    get:
+      summary: Get new tokens
+      operationId: Get new tokens
+      description: ''
+      tags:
+        - 'Tokens'
+      responses:
+        '200':
+          description: ''
+      security:
+        get_new_tokens: []
+    delete:
+      summary: Invalidate tokens
+      operationId: Invalidate tokens
+      description: ''
+      tags:
+        - 'Tokens'
+      responses:
+        '200':
+          description: ''
+    patch:
+      summary: Refresh tokens
+      operationId: Refresh tokens
+      description: ''
+      tags:
+        - 'Tokens'
+      responses:
+        '200':
+          description: ''
+  /api/v1/users/YOUR_USER_UUID:
+    delete:
+      summary: Delete your user
+      operationId: Delete your user
+      description: ''
+      tags:
+        - 'Users'
+      responses:
+        '200':
+          description: ''
+    get:
+      summary: Get your user
+      operationId: Get your user
+      description: ''
+      tags:
+        - 'Users'
+      responses:
+        '200':
+          description: ''
+  /api/v1/users:
+    get:
+      summary: Get all users
+      operationId: Get all users
+      description: ''
+      tags:
+        - 'Users'
+      responses:
+        '200':
+          description: ''
+  /healthz:
+    get:
+      summary: Health check
+      operationId: Health check
+      description: ''
+      tags:
+        - 'Common'
+      responses:
+        '200':
+          description: ''
+  /api/v1/:
+    get:
+      summary: Main route
+      operationId: Main route
+      description: ''
+      tags:
+        - 'Common'
+      responses:
+        '200':
+          description: ''
+servers:
+  - url: http://localhost:4000
+  - url: https://cookies-refresh-back.onrender.com
+components:
+  schemas: {}
+  requestBodies: {}
+  securitySchemes:
+    get_new_tokens:
+      type: http
+      scheme: bearer
