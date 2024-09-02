@@ -3,6 +3,8 @@ import { AppModule } from './app.module';
 import { VersioningType } from '@nestjs/common';
 import * as cookieParser from 'cookie-parser';
 
+const port = process.env.PORT || 4000;
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
@@ -22,6 +24,6 @@ async function bootstrap() {
 
   app.use(cookieParser());
 
-  await app.listen(4000);
+  await app.listen(port);
 }
 bootstrap();
