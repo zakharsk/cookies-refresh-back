@@ -1,10 +1,11 @@
 {
   "name": "cookie-refresh-back",
   "version": "0.0.1",
-  "description": "",
+  "description": "NestJS server implementation to demonstrate updating of access tokens passed via cookie.",
   "author": "Zakhar Skorokhodov zaharsk@gmail.com",
   "private": true,
   "license": "UNLICENSED",
+  "homepage": "https://github.com/zakharsk/cookies-refresh-back.git",
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\"",
