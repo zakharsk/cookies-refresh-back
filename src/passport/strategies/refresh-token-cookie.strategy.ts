@@ -1,13 +1,14 @@
+import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { PassportStrategy } from '@nestjs/passport';
+import { Request } from 'express';
 import { Strategy } from 'passport-jwt';
+
 import {
   refreshTokenCookieName,
   refreshTokenCookieStrategyName,
-} from '../../constants';
-import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { Request } from 'express';
-import { ConfigService } from '@nestjs/config';
-import { UsersService } from '../../users/users.service';
+} from '@/constants';
+import { UsersService } from '@/users/users.service';
 
 function refreshTokenExtractor(req: Request) {
   if (req && req.cookies[refreshTokenCookieName]) {

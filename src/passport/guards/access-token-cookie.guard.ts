@@ -1,11 +1,12 @@
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
+import { Reflector } from '@nestjs/core';
 import { AuthGuard } from '@nestjs/passport';
+import { Observable } from 'rxjs';
+
 import {
   accessTokenCookieStrategyName,
   noAccessTokenCookieKey,
-} from '../../constants';
-import { Reflector } from '@nestjs/core';
-import { Observable } from 'rxjs';
+} from '@/constants';
 
 @Injectable()
 export class AccessTokenCookieGuard

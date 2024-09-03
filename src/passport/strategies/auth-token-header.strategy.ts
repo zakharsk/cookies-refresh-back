@@ -1,9 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { Strategy } from 'passport-http-bearer';
-import { TokensService } from '../../tokens/tokens.service';
-import { UsersService } from '../../users/users.service';
-import { authTokenHeaderStrategyName } from '../../constants';
+
+import { authTokenHeaderStrategyName } from '@/constants';
+import { TokensService } from '@/tokens/tokens.service';
+import { UsersService } from '@/users/users.service';
 
 @Injectable()
 export class AuthTokenHeaderStrategy extends PassportStrategy(

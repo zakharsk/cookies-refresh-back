@@ -1,6 +1,7 @@
 import { CanActivate, Injectable } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { refreshTokenCookieStrategyName } from '../../constants';
+
+import { refreshTokenCookieStrategyName } from '@/constants';
 
 @Injectable()
 export class RefreshTokenCookieGuard

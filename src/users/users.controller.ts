@@ -7,9 +7,11 @@ import {
   HttpStatus,
   Param,
 } from '@nestjs/common';
-import { UsersService } from './users.service';
-import { CurrentUser } from '../passport/decorators';
+
+import { CurrentUser } from '@/passport/decorators';
+
 import { User } from './entities/user.entity';
+import { UsersService } from './users.service';
 
 @Controller('users')
 export class UsersController {

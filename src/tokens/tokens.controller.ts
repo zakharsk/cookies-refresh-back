@@ -1,13 +1,15 @@
 import { Controller, Delete, Get, Patch, Res, UseGuards } from '@nestjs/common';
-import { TokensService } from './tokens.service';
-import { AuthTokenHeaderGuard } from '../passport/guards';
-import { CurrentUser, NoAccessTokenCookie } from '../passport/decorators';
-import { User } from '../users/entities/user.entity';
-import { Response } from 'express';
 import { JwtService } from '@nestjs/jwt';
-import { accessTokenCookieName, refreshTokenCookieName } from '../constants';
-import { UsersService } from '../users/users.service';
-import { RefreshTokenCookieGuard } from '../passport/guards/refresh-token-cookie.guard';
+import { Response } from 'express';
+
+import { accessTokenCookieName, refreshTokenCookieName } from '@/constants';
+import { CurrentUser, NoAccessTokenCookie } from '@/passport/decorators';
+import { AuthTokenHeaderGuard } from '@/passport/guards';
+import { RefreshTokenCookieGuard } from '@/passport/guards/refresh-token-cookie.guard';
+import { User } from '@/users/entities/user.entity';
+import { UsersService } from '@/users/users.service';
+
+import { TokensService } from './tokens.service';
 
 @Controller('tokens')
 export class TokensController {

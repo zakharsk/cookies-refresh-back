@@ -1,8 +1,9 @@
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
 import { RequestMethod, VersioningType } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
 import * as cookieParser from 'cookie-parser';
 import { Logger, LoggerErrorInterceptor } from 'nestjs-pino';
+
+import { AppModule } from './app.module';
 
 const port = process.env.PORT || 4000;
 const isProductionEnv = process.env.NODE_ENV === 'production';

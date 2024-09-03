@@ -40,8 +40,10 @@
     "noFallthroughCasesInSwitch": false,
     "strict": true,
     "noUnusedLocals": true,
-    "noUncheckedIndexedAccess": true
-
+    "noUncheckedIndexedAccess": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   }
 }
 

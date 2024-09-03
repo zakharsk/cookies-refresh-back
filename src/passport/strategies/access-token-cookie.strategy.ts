@@ -1,13 +1,14 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { PassportStrategy } from '@nestjs/passport';
-import { Strategy } from 'passport-jwt';
 import { Request } from 'express';
+import { Strategy } from 'passport-jwt';
+
 import {
   accessTokenCookieName,
   accessTokenCookieStrategyName,
-} from '../../constants';
-import { ConfigService } from '@nestjs/config';
-import { UsersService } from '../../users/users.service';
+} from '@/constants';
+import { UsersService } from '@/users/users.service';
 
 function accessTokenExtractor(req: Request) {
   if (req && req.cookies[accessTokenCookieName]) {

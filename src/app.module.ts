@@ -1,15 +1,16 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import { APP_GUARD } from '@nestjs/core';
+import { PassportModule } from '@nestjs/passport';
+import { LoggerModule } from 'nestjs-pino';
+
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TokensModule } from './tokens/tokens.module';
-import { ConfigModule } from '@nestjs/config';
-import { PassportModule } from '@nestjs/passport';
-import { UsersModule } from './users/users.module';
-import { PrismaModule } from './prisma/prisma.module';
-import { APP_GUARD } from '@nestjs/core';
 import { AccessTokenCookieGuard } from './passport/guards';
 import { AccessTokenCookieStrategy } from './passport/strategies';
-import { LoggerModule } from 'nestjs-pino';
+import { PrismaModule } from './prisma/prisma.module';
+import { TokensModule } from './tokens/tokens.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [

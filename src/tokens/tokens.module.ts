@@ -1,12 +1,13 @@
 import { Module } from '@nestjs/common';
-import { TokensService } from './tokens.service';
+import { JwtModule } from '@nestjs/jwt';
+
 import { TokensController } from './tokens.controller';
+import { TokensService } from './tokens.service';
 import {
   AuthTokenHeaderStrategy,
   RefreshTokenCookieStrategy,
 } from '../passport/strategies';
 import { UsersModule } from '../users/users.module';
-import { JwtModule } from '@nestjs/jwt';
 
 @Module({
   imports: [UsersModule, JwtModule],
