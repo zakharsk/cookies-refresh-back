@@ -42,11 +42,13 @@ export class TokensController {
       httpOnly: true,
       secure: true,
       maxAge: accessTokenMaxAge,
+      sameSite: 'lax',
     });
     res.cookie(refreshTokenCookieName, tokens.refreshToken, {
       httpOnly: true,
       secure: true,
       maxAge: refreshTokenMaxAge,
+      sameSite: 'lax',
     });
 
     if (invalidate) {
