@@ -20,8 +20,8 @@ export class TokensController {
   ) {}
 
   async setNewTokens(user: User, res: Response, invalidate: boolean = false) {
-    let accessTokenMaxAge = 0;
-    let refreshTokenMaxAge = 0;
+    let accessTokenCookieMaxAge = 0;
+    let refreshTokenCookieMaxAge = 0;
     let tokens = {
       accessToken: '',
       refreshToken: '',
@@ -36,20 +36,20 @@ export class TokensController {
         this.jwtService.decode(tokens.refreshToken).exp * 1000;
 
       const currentTimestamp = Date.now();
-      accessTokenMaxAge = accessTokenExpiresIn - currentTimestamp;
-      refreshTokenMaxAge = refreshTokenExpiresIn - currentTimestamp;
+      accessTokenCookieMaxAge = accessTokenExpiresIn - currentTimestamp;
+      refreshTokenCookieMaxAge = refreshTokenExpiresIn - currentTimestamp;
     }
 
     res.cookie(accessTokenCookieName, tokens.accessToken, {
       httpOnly: true,
       secure: true,
-      maxAge: accessTokenMaxAge,
+      maxAge: accessTokenCookieMaxAge,
       sameSite: 'lax',
     });
     res.cookie(refreshTokenCookieName, tokens.refreshToken, {
       httpOnly: true,
       secure: true,
-      maxAge: refreshTokenMaxAge,
+      maxAge: refreshTokenCookieMaxAge,
       sameSite: 'lax',
     });
 
