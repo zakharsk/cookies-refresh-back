@@ -6,11 +6,10 @@ import { Logger, LoggerErrorInterceptor } from 'nestjs-pino';
 import { AppModule } from './app.module';
 
 const port = process.env.PORT || 4000;
-const isProductionEnv = process.env.NODE_ENV === 'production';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
-    bufferLogs: !isProductionEnv,
+    bufferLogs: true,
   });
 
   app.setGlobalPrefix('api', {
@@ -29,10 +28,8 @@ async function bootstrap() {
 
   app.use(cookieParser());
 
-  if (!isProductionEnv) {
-    app.useLogger(app.get(Logger));
-    app.useGlobalInterceptors(new LoggerErrorInterceptor());
-  }
+  app.useLogger(app.get(Logger));
+  app.useGlobalInterceptors(new LoggerErrorInterceptor());
 
   await app.listen(port);
 }

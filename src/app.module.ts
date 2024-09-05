@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { APP_GUARD } from '@nestjs/core';
 import { PassportModule } from '@nestjs/passport';
 import { LoggerModule } from 'nestjs-pino';
@@ -17,11 +17,23 @@ import { UsersModule } from './users/users.module';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    LoggerModule.forRoot({
-      pinoHttp: {
-        transport: {
-          target: 'pino-pretty',
-        },
+    LoggerModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: async (configService: ConfigService) => {
+        const nodeEnv = configService.get('NODE_ENV') || 'development';
+        const isProduction = nodeEnv === 'production';
+        return {
+          pinoHttp: {
+            level: isProduction ? 'warn' : 'debug',
+            transport: {
+              target: 'pino-pretty',
+              options: {
+                singleLine: isProduction,
+              },
+            },
+          },
+        };
       },
     }),
     PassportModule,
