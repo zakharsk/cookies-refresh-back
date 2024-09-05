@@ -12,7 +12,7 @@ npx prisma migrate deploy
 npm run start:dev
 ```
 ## .env
-You need to copy rename the `.env.example` file to `.env` and write any non-empty values for `ACCESS_JWT_SECRET` and `REFRESH_JWT_SECRET`.
+You need to rename the `.env.example` file to `.env` and write any non-empty values for `ACCESS_JWT_SECRET` and `REFRESH_JWT_SECRET`.
 The `ACCESS_JWT_EXPIRES_IN` and `REFRESH_JWT_EXPIRES_IN` values are used to set the lifetime of tokens, and to set the `Max-Age` parameter of the cookies being sent.
 ## Endpoints
 - `/tokens`
